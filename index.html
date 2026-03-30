@@ -426,7 +426,7 @@
       try {
         status.textContent = "Chargement des données...";
         status.className = "status-pill";
-        const response = await fetch(CSV_URL, { cache: "no-store" });
+        const response = await fetch(CSV_URL + "&t=" + Date.now());
         if (!response.ok) throw new Error("Impossible de récupérer le CSV");
         const csvText = await response.text();
         const donnees = parseCSV(csvText);
